@@ -4,13 +4,39 @@ import Register from './pages/register/Register'
 import Watch from './pages/watch/Watch'
 import './App.scss'
 import Login from './pages/login/Login'
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 
 function App() {
+  const user = true;
 
   return (
-    <div>
-      <Home />
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path='/'>
+          {user ? <Home /> : <Redirect to="/register" />}
+        </Route>
+        <Route path='/register'>
+          {!user ? <Register /> : <Redirect to="/" />}
+        </Route>
+        <Route path='/login'>
+          {!user ? <Login /> : <Redirect to="/" />}
+        </Route>
+        { user && (
+          <>
+            <Route path='/series'>
+              <Home type='series' />
+            </Route>
+            <Route path='/movies'>
+              <Home type='movies' />
+            </Route>
+            <Route path='/watch'>
+              <Watch />
+              </Route>
+          </>
+          )
+         }
+      </Switch>
+    </Router>
   )
 }
 

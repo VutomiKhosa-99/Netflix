@@ -13,8 +13,10 @@
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.3",
+    "axios": "^1.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.6.2",
     "redux": "^4.2.0",
     "sass": "^1.57.1",
     "video-react": "^0.16.0"
@@ -24,5 +26,6 @@
     "@types/react-dom": "^18.0.9",
     "@vitejs/plugin-react": "^3.0.0",
     "vite": "^4.0.0"
-  }
+  },
+  "proxy": "http://localhost:8000/api/"
 }
