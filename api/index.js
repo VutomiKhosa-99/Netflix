@@ -6,6 +6,7 @@ const authRoute = require("./routes/auth");
 const userRoute = require("./routes/users");
 const movieRoute = require("./routes/movies");
 const listRoute = require("./routes/lists");
+const cors = require("cors");
 
 
 
@@ -15,6 +16,7 @@ mongoose.connect(process.env.MONGO_URL)
 .then(() => console.log("MongoDB connection successful"))
 .catch((err) => (err));
 
+app.use(cors());
 app.use(express.json());
 
 app.use("/api/auth", authRoute)
@@ -22,7 +24,8 @@ app.use("/api/users", userRoute)
 app.use("/api/movies", movieRoute)
 app.use("/api/lists", listRoute)
 
+const port = process.env.PORT || 8000
 
-app.listen(8000, () => {
-    console.log("Backend server running.")
+app.listen(port, () => {
+    console.log(`Backend server running on port: ${port}`)
 })

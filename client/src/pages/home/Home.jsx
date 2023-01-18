@@ -1,40 +1,48 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
-import Featured from '../../Components/featured/Featured'
-import List from '../../Components/list/List'
-import Navbar from '../../Components/navbar/Navbar'
-import './home.scss'
+import Navbar from "../../components/navbar/Navbar";
+import Featured from "../../components/featured/Featured";
+import "./home.scss";
+import List from "../../components/list/List";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-function Home({type}) {
-  const [lists, setLists] = useState([])
-  const [genre, setGenre] = useState(null)
+const Home = ({ type }) => {
+  const [lists, setLists] = useState([]);
+  const [genre, setGenre] = useState(null);
+  const axiosInstance = axios.create({
+    baseURL: process.env.REACT_APP_API_URL,
+  });
 
   useEffect(() => {
     const getRandomLists = async () => {
       try {
-        const res = await axios.get(
-          `lists${type ? "?type=" + type : ""}&${genre ?  "&genre" + genre : ""}`, {
-            header: {
-              token: "Bearer "
-            }
+        const res = await axiosInstance.get(
+          `lists${type ? "?type=" + type : ""}${
+            genre ? "&genre=" + genre : ""
+          }`,
+          {
+            headers: {
+              token:
+              "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
+            },
           }
-          )
-          setLists(res.data)
+        );
+        setLists(res.data);
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
-    }
-    getRandomLists()
-  }, [type, genre])
+    };
+    getRandomLists();
+  }, [type, genre]);
+
   return (
     <div className="home">
-        <Navbar />
-        <Featured type={type} />
-        {lists.map((list) => (
-          <List  list={list}/>
-        ))}
+      <Navbar />
+      <Featured type={type} setGenre={setGenre} />
+      {lists.map((list) => (
+        <List list={list} />
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
