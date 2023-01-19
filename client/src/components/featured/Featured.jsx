@@ -1,6 +1,6 @@
+import React, { useEffect, useState } from "react";
 import { InfoOutlined, PlayArrow } from "@mui/icons-material";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
 import "./featured.scss";
 
 export default function Featured({ type, setGenre }) {

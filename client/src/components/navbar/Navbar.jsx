@@ -1,5 +1,5 @@
-import { ArrowDropDown, Notifications, Search } from "@mui/icons-material";
 import React, { useContext, useState } from "react";
+import { ArrowDropDown, Notifications, Search } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../authContext/AuthContext";
 import { logout } from "../../authContext/AuthActions";
