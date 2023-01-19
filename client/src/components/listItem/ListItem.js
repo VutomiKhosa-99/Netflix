@@ -32,7 +32,7 @@ export default function ListItem({ index, item }) {
       }
     };
     getMovie();
-  }, [item]);
+  }, [axiosInstance, item]);
 
   return (
     <Link to={{ pathname: "/watch", movie: movie }}>

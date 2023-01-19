@@ -24,7 +24,7 @@ export default function Featured({ type, setGenre }) {
       }
     };
     getRandomContent();
-  }, [type]);
+  }, [axiosInstance, type]);
 
   console.log(content);
   return (
