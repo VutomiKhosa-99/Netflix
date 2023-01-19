@@ -1,4 +1,3 @@
-import "./app.scss";
 import Home from "./pages/home/Home";
 import Register from "./pages/register/Register";
 import Watch from "./pages/watch/Watch";
@@ -11,6 +10,7 @@ import {
 } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "./authContext/AuthContext";
+import "./app.scss";
 
 const App = () => {
   const { user } = useContext(AuthContext);
