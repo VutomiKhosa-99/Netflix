@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "./authContext/AuthContext";
-import "./app.scss";
+import "./App.scss";
 
 const App = () => {
   const { user } = useContext(AuthContext);
