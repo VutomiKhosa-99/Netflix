@@ -8,7 +8,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { AuthContext } from "./authContext/AuthContext";
 import "./App.scss";
 

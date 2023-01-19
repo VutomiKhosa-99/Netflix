@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./home.scss";
 import axios from "axios";
 import Navbar from "components/navbar/Navbar";

@@ -2,7 +2,7 @@ import {
   ArrowBackIosOutlined,
   ArrowForwardIosOutlined,
 } from "@mui/icons-material";
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import ListItem from "../listItem/ListItem";
 import "./list.scss";
 
