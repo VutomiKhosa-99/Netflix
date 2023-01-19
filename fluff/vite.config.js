@@ -10,4 +10,3 @@ export default ({ mode }) => {
 
 }
 
-// https://vitejs.dev/config/
