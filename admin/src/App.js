@@ -12,8 +12,8 @@ import UserList from "./pages/userList/UserList";
 import User from "./pages/user/User";
 import NewUser from "./pages/newUser/NewUser";
 import Login from "./pages/login/Login";
-import { AuthContext } from "./context/authContext/AuthContext";
-import { useContext } from "react";
+// import { AuthContext } from "./context/authContext/AuthContext";
+// import { useContext } from "react";
 import ListList from "./pages/listList/ListList";
 import List from "./pages/list/List";
 import NewList from "./pages/newList/NewList";
@@ -22,7 +22,9 @@ import { Movie } from "@mui/icons-material";
 import NewMovie from "./pages/newMovie/NewMovie";
 
 function App() {
-  const { user } = useContext(AuthContext);
+//   const { user } = useContext(AuthContext);
+
+   const user = true;
   return (
     <BrowserRouter>
       <Routes>

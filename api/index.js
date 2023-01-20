@@ -8,16 +8,16 @@ const movieRoute = require("./routes/movies");
 const listRoute = require("./routes/lists");
 const cors = require("cors");
 
-
-
 dotenv.config();
+
+// middlewares
+app.use(cors());
+app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URL)
 .then(() => console.log("MongoDB connection successful"))
 .catch((err) => (err));
 
-app.use(cors());
-app.use(express.json());
 
 app.use("/api/auth", authRoute)
 app.use("/api/users", userRoute)
