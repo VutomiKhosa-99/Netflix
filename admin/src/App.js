@@ -39,7 +39,7 @@ function App() {
             <div className="container">
               <Sidebar />
               <Route  path="/" 
-                      element={<Home />} 
+                      exact element={<Home />} 
               />
               <Route 
                       path="/users" 
