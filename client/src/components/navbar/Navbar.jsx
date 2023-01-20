@@ -3,7 +3,7 @@ import { ArrowDropDown, Notifications, Search } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../authContext/AuthContext";
 import { logout } from "../../authContext/AuthActions";
-import "./navbar.scss";
+import "./navbar.css";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);

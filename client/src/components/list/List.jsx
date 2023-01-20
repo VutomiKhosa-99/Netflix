@@ -4,7 +4,7 @@ import {
   ArrowForwardIosOutlined,
 } from "@mui/icons-material";
 import ListItem from "../listItem/ListItem";
-import "./list.scss";
+import "./list.css";
 
 export default function List({ list }) {
   const [isMoved, setIsMoved] = useState(false);
