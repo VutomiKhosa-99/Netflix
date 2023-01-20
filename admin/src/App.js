@@ -28,17 +28,13 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route
-              path="/login"
-              element={user ? <Navigate to="/" /> : <Login />}
-        /> */}
         {user && (
-          <>
+                <>
             <Topbar />
             <div className="container">
               <Sidebar />
               <Route  path="/" 
-                      exact element={<Home />} 
+                      element={<Home />} 
               />
               <Route 
                       path="/users" 
@@ -58,7 +54,7 @@ function App() {
               />
               <Route  path="/movie/:movieId"  
                       element={<Movie />} 
-              />
+                      />
               <Route  path="/newMovie" 
                       element={<NewMovie />} 
               />
@@ -67,11 +63,15 @@ function App() {
               />
               <Route  path="/list/:listId"  
                       element={<List />} 
-              />
+                      />
               <Route  path="/newlist" 
                       element={<NewList />} 
               />  
             </div>
+            <Route
+                  path="/login"
+                  element={user ? <Navigate to="/" /> : <Login />}
+            />
           </>
         )}
       </Routes>
