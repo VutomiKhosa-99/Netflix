@@ -28,11 +28,10 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route
+        {/* <Route
               path="/login"
               element={user ? <Navigate to="/" /> : <Login />}
-        />
-
+        /> */}
         {user && (
           <>
             <Topbar />
