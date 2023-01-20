@@ -9,12 +9,11 @@ import {
   Navigate,
 } from "react-router-dom";
 import React, { useContext } from "react";
-// import { AuthContext } from "./authContext/AuthContext";
+import { AuthContext } from "./authContext/AuthContext";
 import "./App.scss";
 
 const App = () => {
-  // const { user } = useContext(AuthContext);
-   const user = true;
+  const { user } = useContext(AuthContext);
   return (
     <Router>
       <Routes>

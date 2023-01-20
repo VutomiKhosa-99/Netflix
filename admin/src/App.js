@@ -12,8 +12,8 @@ import UserList from "./pages/userList/UserList";
 import User from "./pages/user/User";
 import NewUser from "./pages/newUser/NewUser";
 import Login from "./pages/login/Login";
-// import { AuthContext } from "./context/authContext/AuthContext";
-// import { useContext } from "react";
+import { AuthContext } from "./context/authContext/AuthContext";
+import { useContext } from "react";
 import ListList from "./pages/listList/ListList";
 import List from "./pages/list/List";
 import NewList from "./pages/newList/NewList";
@@ -22,14 +22,17 @@ import { Movie } from "@mui/icons-material";
 import NewMovie from "./pages/newMovie/NewMovie";
 
 function App() {
-//   const { user } = useContext(AuthContext);
-
-   const user = true;
+  const { user } = useContext(AuthContext);
   return (
     <BrowserRouter>
       <Routes>
+        <Route
+              path="/login"
+              element={user ? <Navigate to="/" /> : <Login />}
+        />
+
         {user && (
-                <>
+          <>
             <Topbar />
             <div className="container">
               <Sidebar />
@@ -54,7 +57,7 @@ function App() {
               />
               <Route  path="/movie/:movieId"  
                       element={<Movie />} 
-                      />
+              />
               <Route  path="/newMovie" 
                       element={<NewMovie />} 
               />
@@ -63,15 +66,11 @@ function App() {
               />
               <Route  path="/list/:listId"  
                       element={<List />} 
-                      />
+              />
               <Route  path="/newlist" 
                       element={<NewList />} 
               />  
             </div>
-            <Route
-                  path="/login"
-                  element={user ? <Navigate to="/" /> : <Login />}
-            />
           </>
         )}
       </Routes>
