@@ -33,14 +33,14 @@ router.post("/login", async (req, res) => {
         const user = await User.findOne({ email: req.body.email });
         !user && res.status(401).json("Wrong password or username!")
 
-        const bytes = CryptoJS.AES.decrypt(user.password, process.env.SECRET_TOKEN);
+        const bytes = CryptoJS.AES.decrypt(user.password, process.env.SECRET_KEY);
         const originalPassword = bytes.toString(CryptoJS.enc.Utf8);
 
-        originalPassword !== req.body.password && res.status(401).json("Wrongpassword or username!");
+        originalPassword !== req.body.password && res.status(401).json("Wrong password or username!");
 
         const accessToken = jwt.sign(
             { id: user._id, isAdmin: user.isAdmin },
-            process.env.SECRET_KEY, {expiresIn: "1d"}
+            process.env.SECRET_KEY, {expiresIn: "5d"}
         );
 
         const { password, ...info } = user._doc;
